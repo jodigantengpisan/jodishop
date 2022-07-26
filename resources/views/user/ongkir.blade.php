@@ -138,7 +138,7 @@
                                     <div class="form-group">
                                         <h5>Kirim Dari</h5>
                                         <select name="province_from" class="form-control">
-                                            <option value="" holder>Pilih provinsi</option>
+                                            <option value="" holder>Pilih provinsi Bogor</option>
                                             @foreach($provinsi as $result)
                                             <option value="{{$result->id}}">{{$result->province}} </option>
                                             @endforeach
