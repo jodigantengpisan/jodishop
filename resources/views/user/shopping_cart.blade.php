@@ -82,10 +82,10 @@
                                     <li><a href="./shop_detail">Shop Details</a></li>
                                     <li class="active"><a href="./shopping_cart">Shopping Cart</a></li>
                                     <li><a href="./checkout">Check Out</a></li>
-                                    
+
                                 </ul>
                             </li>
-                            
+
                             <li><a href="./contact">Contacts</a></li>
                         </ul>
                     </nav>
@@ -129,7 +129,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="shopping__cart__table">
-                    @if(!empty($pesanan))
+                        @if(!empty($pesanan))
                         <table>
                             <thead>
                                 <tr>
@@ -140,11 +140,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($pesanan_details as $pesanan_detail)
+                                @foreach($pesanan_details as $pesanan_detail)
                                 <tr>
                                     <td class="product__cart__item">
                                         <div class="product__cart__item__pic">
-                                            <img src="{{ url('img') }}/{{ $pesanan_detail->barang->image1 }}"  width="100" alt="">
+                                            <img src="{{ url('img') }}/{{ $pesanan_detail->barang->image1 }}"
+                                                width="100" alt="">
                                         </div>
                                         <div class="product__cart__item__text">
                                             <h6>{{ $pesanan_detail->barang->nama_barang }}</h6>
@@ -153,47 +154,50 @@
                                     </td>
                                     <td class="quantity__item">
                                         <div class="quantity">
-                                            
+
                                             <h6>{{ $pesanan_detail->jumlah }}</h6>
-                                            </div>
                                         </div>
-                                    </td>
-                                    <td class="cart__price">{{ $pesanan_detail->jumlah_harga }}</td>
-                                    <form action="{{ route('shopping_cart.delete', $pesanan_detail->id_pesanan_detail) }}" method="post">
-                                            @csrf
-                                            {{method_field('DELETE')}}
-                                            <td class="cart__close"><button type="submit" class=" fa fa-close" onclick=" return confirm('Anda yakin ingin menghapus data ini?');"></button></td>
-                                           
-                                                
-                                            </button>
-                                        </form>
-                                </tr>
-                                @endforeach
-                               
-                            </tbody>
-                        </table>
-                        @endif
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="continue__btn">
-                                <a href="./shop">Continue Shopping</a>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    </td>
+                    <td class="cart__price">{{ $pesanan_detail->jumlah_harga }}</td>
+                    <form action="{{ route('shopping_cart.delete', $pesanan_detail->id_pesanan_detail) }}"
+                        method="post">
+                        @csrf
+                        {{method_field('DELETE')}}
+                        <td class="cart__close"><button type="submit" class=" fa fa-close"
+                                onclick=" return confirm('Anda yakin ingin menghapus data ini?');"></button></td>
+
+
+                        </button>
+                    </form>
+                    </tr>
+                    @endforeach
+
+                    </tbody>
+                    </table>
+                    @endif
                 </div>
-                <div class="col-lg-4">
-                    <div class="cart__total">
-                        <h6>Cart total</h6>
-                        <ul>
-                            
-                            <li>Total <span>Rp. {{ number_format($pesanan->jumlah_harga) }}</span></li>
-                        </ul>
-                        <a href="./checkout" class="primary-btn">Proceed to checkout</a>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn">
+                            <a href="./shop">Continue Shopping</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
+            <div class="col-lg-4">
+                <div class="cart__total">
+                    <h4><b>Keranjang Total</b></h4>
+                    <br>
+                    <ul>
+
+                        <li><h5>Total <span>Rp. {{ number_format($pesanan->jumlah_harga) }}</h5></span></li>
+                    </ul>
+                    <a href="./checkout" class="primary-btn">Proceed to checkout</a>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
     <!-- Shopping Cart Section End -->

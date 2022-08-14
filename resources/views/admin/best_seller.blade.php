@@ -118,81 +118,34 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
+                    <li class="active has-sub">
                             <a class="js-arrow" href="./admin">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                           
-                        </li>
-                        <li>
+                            </li>
+                        
                         <li>
                             <a href="./barang">
                                 <i class="fas fa-briefcase"></i>Barang</a>
                         </li>
-                        <li  class="active">
+                        <li>
                             <a href="./best_seller">
                                 <i class="fas fa-tags"></i>Produk Unggulan</a>
-                       
+
                         <li>
                             <a href="./pesanadmin">
                                 <i class="far fa-envelope"></i>Pesan</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="./pelanggan">
                                 <i class="fas fa-users"></i>Pelanggan</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
+                        <li class="active">
+                            <a href="./pesanan">
+                                <i class="fas fa-shopping-cart"></i>Pesanan</a>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
-                            </ul>
+                        <li class="active">
+                            <a href="./pesanan">
+                                <i class="fas  fa-credit-card"></i>Bukti Transfer</a>
                         </li>
                     </ul>
                 </nav>

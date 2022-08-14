@@ -22,6 +22,7 @@ class barangController extends Controller
       $data->jumlah= $r->jumlah;
       $data->deskripsi= $r->deskripsi;
       $data->material= $r->material;
+      $data->berat= $r->berat;
       $data->kategori= $r->kategori;
  
         $destinationPath="img";
@@ -113,7 +114,8 @@ public function update(Request $r)
     'image2' => $oldgambar2,
     'image3' => $oldgambar3,
     'deskripsi' => $r->deskripsi,
-    'material' => $r->material);
+    'material' => $r->material,
+    'berat' => $r->berat);
     barang::where('id_barang',$r->ids)->update($data);
     return redirect()->back();
  }

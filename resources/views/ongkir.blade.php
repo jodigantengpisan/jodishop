@@ -68,7 +68,7 @@
                     <h3>KURIR</h3>
                     <hr>
                     <div class="form-group">
-                        <label>PROVINSI TUJUAN</label>
+                        <label>PILIH EKSPEDISI</label>
                         <select class="form-control kurir" name="courier">
                             <option value="0">-- pilih kurir --</option>
                             <option value="jne">JNE</option>

@@ -1,7 +1,6 @@
 @extends('admin')
 @section('main')
 
-
 <div id="popUpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -12,24 +11,21 @@
                 <h5 class="modal-title"></h5>
             </div>
             <div class="modal-body">
-
-
-
                 <div class="frm-hapus">
-                    <h5 align="center">Apakah anda yakin ingin menghapus data ini ?</h5>
+                    <h5 align="center">Are you sure you want to delete this data?</h5>
                     <br>
                     <div class="form-group" style="padding-bottom: 20x !important;">
 
                         <div class="row justify-content-around">
                             <div class="col-6">
-                                {{Form::open(['url' => 'pelanggandel'])}}
+                                {{Form::open(['url' => 'deldp4'])}}
                                 <input type="hidden" name="id" class="idnya">
-                                <button type="submit" class="btn btn-danger btn-sm btn-block">Konfirmasi</button>
+                                <button type="submit" class="btn btn-danger btn-sm btn-block">Yes</button>
                                 {{Form::close()}}
                             </div>
                             <div class="col-6">
                                 <button type="button" class="btn btn-success btn-sm btn-block"
-                                    data-dismiss="modal">Batal</button>
+                                    data-dismiss="modal">No</button>
                                 <div class="modal-footer">
                                 </div>
                             </div>
@@ -67,21 +63,25 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
 
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="./barang">
-                                <i class="fas fa-briefcase"></i>Barang</a>
+                                <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
-                            <a href="./best_seller">
-                                <i class="fas fa-tags"></i>Produk Unggulan</a>
-
-                        <li>
-                            <a href="./pesanadmin">
-                                <i class="far fa-envelope"></i>Pesan</a>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="./pelanggan">
-                                <i class="fas fa-users"></i>Pelanggan</a>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -153,7 +153,7 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
+                    <li class="active has-sub">
                             <a class="js-arrow" href="./admin">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             </li>
@@ -182,14 +182,12 @@
                             <a href="./pesanan">
                                 <i class="fas  fa-credit-card"></i>Bukti Transfer</a>
                         </li>
-
-                        
                     </ul>
                 </nav>
             </div>
         </aside>
         <!-- END MENU SIDEBAR-->
-        <br>
+
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -216,46 +214,51 @@
             <!-- HEADER DESKTOP-->
             <br>
             <br>
-            <div class="row m-t-30">
-                <div class="col-md-10">
-                    <!-- DATA TABLE-->
-                    <div class="table-responsive m-b-40">
-                        <table class="table table-borderless table-data3">
-                            <thead>
-                                <tr>
-                                    <th>Nama Pelanggan</th>
-                                    <th>Email </th>
-                                    <th>Aksi</th>
+            <br>
+            <br>
+            <section>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2><i class="fa fa-history-cart"></i> Bukti pembayaran</h2>
+                            <br>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Foto</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <?php $n= 1; ?>
+                                <tbody>
+                                    @if (!empty($data))
+                                    @foreach($data as $table)
+                                    <tr>
+                                        <td><?php echo $n++ ?></td>
+                                        <td>{{$table->nama}}</td>
+                                        <td><img src="{{ url('img') }}/{{$table->image}}" width="100" alt=""></td>
+                                        <td>{{$table->total}}</td>
+                                        <td><button class="btn btn-danger fas fa-exclamation-triangle btn-apus"
+                                                value="{{$table->id}}"></button></td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+            </section>
 
+            @endsection
+            @section('script')
+            <script>
+                $('.btn-apus').on('click', function () {
+                    $('#popUpModal').modal('show');
+                    $('.frm-hapus').show();
+                    $('.idnya').val($(this).val());
+                })
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (!empty($data))
-                                @foreach($data as $tabel)
-                                <tr>
-                                    <td>{{$tabel->name}}</td>
-                                    <td>{{$tabel->email}}</td>
-                                    <td><button class="btn btn-danger fas fa-exclamation-triangle btn-apus"
-                                            value="{{$tabel->id}}">Hapus</button></td>
+            </script>
 
-                                </tr>
-                                @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- END DATA TABLE-->
-
-                    @stop
-                    @section('script')
-                    <script type="text/javascript ">
-                        $('.btn-apus').on('click', function () {
-                            $('#popUpModal').modal('show');
-                            $('.frm-hapus').show();
-                            $('.frm-edit').hide();
-                            $('.idnya').val($(this).val());
-                        })
-
-                    </script>
-                    @endsection
+            @endsection

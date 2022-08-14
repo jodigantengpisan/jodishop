@@ -53,18 +53,20 @@
     </script>
     <script src="{{URL::asset('cssa/vendor/circle-progress/circle-progress.min.js')}}"></script>
     <script src="{{URL::asset('cssa/vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+    <script src="{{URL::asset('cssa/vendor/chartjs/Chart.bundle.min.js')}}"></script>
     <script src="{{URL::asset('cssa/vendor/select2/select2.min.js')}}">
     </script>
 
     
 @yield('script')
     <!-- Main JS-->
-    <script src="cssa/js/main.js"></script>
+    
+    <script src="{{URL::asset('cssa/js/main.js')}}"></script>
 
     <!-- ADD BEST SELLER-->
     <script>
   $(document).ready(function() {
-    $('#example3').DataTable();
+    $('#example').DataTable();
   } );
   </script>
 

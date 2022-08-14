@@ -80,7 +80,7 @@
                                     <li><a href="./shop_detail">Shop Details</a></li>
                                     <li><a href="./shopping_cart">Shopping Cart</a></li>
                                     <li class="active"><a href="./checkout">Check Out</a></li>
-                                    
+
                                 </ul>
                             </li>
                             <li><a href="./contact">Contacts</a></li>
@@ -123,131 +123,171 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-            <div class="checkout__form">
-                <form action="#">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                            here</a> to enter your code</h6>
-                            <h6 class="checkout__title">Billing Details</h6>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Note about your order, e.g, special noe for delivery
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
+            <div class="row">
+            </div>
+            <form class="ps-checkout__form" action="{{  route ('produkDipesan.store') }}" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="form-group ">
+                            <!--<label>Provinsi asal</label> -->
+                            <input type="hidden" value="9" class="form-control" name="province_origin">
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4 class="order__title">Your order</h4>
-                                <div class="checkout__order__products">Product <span>Total</span></div>
-                                <ul class="checkout__total__products">
-                                    <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Sweet autumn <span>$ 170.0</span></li>
-                                    <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
-                                </ul>
-                                <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
-                                </ul>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
-                            </div>
+                        <div class="form-group ">
+                            <!-- <label>Kota Asal</label> -->
+                            <input type="hidden" value="79" class="form-control" id="city_origin" name="city_origin">
+                        </div>
+                        <div class="form-group ">
+                            <label>Nama Pemesan<span>*</span>
+                            </label>
+                            <input type="text" name="name_pd" class="form-control" id="first" required="">
+                        </div>
+                        <div class="form-group ">
+                            <label>No Telepon (WA)<span>*</span>
+                            </label>
+                            <input type="text" name="tlp_pd" class="form-control" id="number" required="">
+                        </div>
+                        <div class="form-group ">
+                            <label>Email<span>*</span>
+                            </label>
+                            <input type="text" name="email_pd" class="form-control" id="email" required="">
+                        </div>
+                        <div class="form-group ">
+                            <!-- <label> <label>Total Belanja
+                            </label>!-->
+                            <input type="hidden" id="subtotal_pd" value="{{ $pesanan->jumlah_harga }}"
+                                name="subtotal_pd" class="form-control">
+                        </div>
+                        <div class="form-group ">
+                            <label>Total berat (gram) </label>
+                            <input class="form-control" value="{{ $pesanan->berat_produk }}" id="weight" name="weight">
+                        </div>
+                        <div class="form-group ">
+                            <label>Alamat<span>*</span>
+                            </label>
+                            <textarea name="address" class="form-control" rows="5"
+                                placeholder="Alamat Lengkap pengiriman" required=""></textarea>
+                        </div>
+                        <div class="form-group form-group--inline">
+                            <label for="provinsi">Provinsi Tujuan</label>
+                            <select name="province_id" id="province_id" class="form-control" required="">
+                                <option value="">Provinsi Tujuan</option>
+                                @foreach ($provinsi as $row)
+                                <option value="{{$row['province_id']}}" namaprovinsi="{{$row['province']}}">
+                                    {{$row['province']}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="nama_provinsi" required=""
+                                nama="nama_provinsi" placeholder="ini untuk menangkap nama provinsi ">
+                        </div>
+                        <div class="form-group ">
+                            <label>Kota Tujuan<span>*</span>
+                            </label>
+                            <select name="kota_id" id="kota_id" required="" class="form-control">
+                                <option value="">Pilih Kota</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="nama_kota" required="" name="nama_kota"
+                                placeholder="ini untuk menangkap nama kota">
+                        </div>
+                        <div class="form-group ">
+                            <label>Pilih Ekspedisi<span>*</span>
+                            </label>
+                            <select name="kurir" id="kurir" class="form-control" required="">
+                                <option value="">Pilih kurir</option>
+                                <option value="jne">JNE</option>
+                                <option value="tiki">TIKI</option>
+                                <option value="pos">POS INDONESIA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Pilih Layanan<span>*</span>
+                            </label>
+                            <select name="layanan" id="layanan" class="form-control slct-info" required="">
+                                <option value="">Pilih layanan</option>
+                            </select>
+
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <label>Kode Pos<span>*</span>
+                            </label>
+                            <input type="text" name="kode_pos_pd" class="form-control" id="zip">
+                        </div>
+                        <div class="form-group ">
+                            <!--<label><label>Total Ongkir
+                            </label>!-->
+                            <input type="hidden" name="total_ongkir_pd" id="ongkir" class="form-control harga-inp">
+                        </div>
+                        <div class="form-group">
+                            <label>Pesan</label>
+                            <textarea class="form-control" name="pesan_pd" id="message" rows="1"
+                                placeholder="(Opsional) Pesan untuk penjual"></textarea>
                         </div>
                     </div>
-                </form>
-            </div>
+                    <div class="col-md-5">
+                        <div class="checkout__order">
+                            <h4 class="order__title">Your order</h4>
+                            <p align="right">Tanggal pesan : {{ $pesanan->tanggal }}</p>
+                            <div class="checkout__order__products">Product <span>Total</span></div>
+
+
+                            @if(!empty($pesanan))
+                            <input type="hidden" name="tanggal_pd" value="{{ $pesanan->tanggal }}">
+
+                            <ul class="checkout__order__products">
+
+                                @foreach($pesanan_details as $pesanan_detail)
+
+                                <ul class="checkout__total__products">
+                                    <li>{{ $pesanan_detail->barang->nama_barang }} <span>x {{ $pesanan_detail->jumlah }}
+                                            Rp. {{ number_format($pesanan_detail->jumlah_harga) }} </span></li>
+
+
+                                </ul>
+                                @endforeach
+                            </ul>
+                            <ul class="checkout__order__products">
+                                <li> Subtotal
+                                    <span>Rp. {{ number_format($pesanan->jumlah_harga) }}</span>
+                                </li>
+                                <li> Harga Ongkir
+                                    <span>Rp. <input name="total_ongkir" id="harga-inp2"
+                                            style="background:transparent;border:none;text-align:right;"></input></span>
+
+                                </li>
+                                <li>
+                                    <input type="hidden" class="penjumlahan2" name="total_belanja_pd">
+                                    <li><b>Grand Total<b><span id="penjumlahan" style="float: right; width: 100px; text-align: right;"></span>
+
+                                </li>
+                            </ul>
+
+                            @endif
+                            <button class="site-btn" type="submit"
+                                onclick=" return confirm('Apakah kamu yakin?');">Pembayaran</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <input type="hidden" readonly class="form-control harga-inp" placeholder="Masukkan Jumlah Pesanan"
+                        oninvalid="alert('You must fill out the form!');" required>
+                </div>
+
+        </div>
+        </div>
+        </form>
         </div>
     </section>
     <!-- Checkout Section End -->
@@ -262,4 +302,159 @@
         </div>
     </div>
     <!-- Search End -->
+    @endsection
+
+    @section('script')
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            //ini ketika provinsi tujuan di klik maka akan eksekusi perintah yg kita mau
+            //name select nama nya "provinve_id" kalian bisa sesuaikan dengan form select kalian
+            $('select[name="province_id"]').on('change', function () {
+                // membuat variable namaprovinsiku untyk mendapatkan atribut nama provinsi
+                var namaprovinsiku = $("#province_id option:selected").attr("namaprovinsi");
+                // menampilkan hasil nama provinsi ke input id nama_provinsi
+                $("#nama_provinsi").val(namaprovinsiku);
+                // kita buat variable provincedid untk menampung data id select province
+                let provinceid = $(this).val();
+                //kita cek jika id di dpatkan maka apa yg akan kita eksekusi
+                if (provinceid) {
+                    // jika di temukan id nya kita buat eksekusi ajax GET
+                    jQuery.ajax({
+                        // url yg di root yang kita buat tadi
+                        url: "/kota/" + provinceid,
+                        // aksion GET, karena kita mau mengambil data
+                        type: 'GET',
+                        // type data json
+                        dataType: 'json',
+                        // jika data berhasil di dapat maka kita mau apain nih
+                        success: function (data) {
+                            // jika tidak ada select dr provinsi maka select kota kososng / empty
+                            $('select[name="kota_id"]').empty();
+                            // jika ada kita looping dengan each
+                            $.each(data, function (key, value) {
+                                // perhtikan dimana kita akan menampilkan data select nya, di sini saya memberi name select kota adalah kota_id
+                                $('select[name="kota_id"]').append(
+                                    '<option value="' + value.city_id +
+                                    '" namakota="' + value.type + ' ' + value
+                                    .city_name + '">' + value.type + ' ' + value
+                                    .city_name + '</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('select[name="kota_id"]').empty();
+                }
+            });
+        });
+        //memberikan action ketika select name kota_id di select
+        //memberikan action ketika select name kota_id di select
+        $('select[name="kota_id"]').on('change', function () {
+            // membuat variable namakotaku untyk mendapatkan atribut nama kota
+            var namakotaku = $("#kota_id option:selected").attr("namakota");
+            // menampilkan hasil nama provinsi ke input id nama_provinsi
+            $("#nama_kota").val(namakotaku);
+        });
+        $('select[name="kurir"]').on('change', function () {
+            // kita buat variable untuk menampung data data dari  inputan
+            // name city_origin di dapat dari input text name city_origin
+            let origin = $("input[name=city_origin]").val();
+            // name kota_id di dapat dari select text name kota_id
+            let destination = $("select[name=kota_id]").val();
+            // name kurir di dapat dari select text name kurir
+            let courier = $("select[name=kurir]").val();
+            // name weight di dapat dari select text name weight
+            let weight = $("input[name=weight]").val();
+            // alert(courier);
+            if (courier) {
+                jQuery.ajax({
+                    url: "/origin=" + origin + "&destination=" + destination + "&weight=" + weight +
+                        "&courier=" + courier,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        $('select[name="layanan"]').empty();
+                        // ini untuk looping data result nya
+                        $.each(data, function (key, value) {
+                            // ini looping data layanan misal jne reg, jne oke, jne yes
+                            $.each(value.costs, function (key1, value1) {
+                                // ini untuk looping cost nya masing masing
+                                // silahkan pelajari cara menampilkan data json agar lebi paham
+                                $.each(value1.cost, function (key2, value2) {
+                                    $('select[name="layanan"]').append(
+                                        '<option value="' + key +
+                                        '" ongkir="' + value2.value +
+                                        '">' + value1.service + '-' +
+                                        value1.description + '-' +
+                                        value2.value + '</option>');
+
+                                });
+                            });
+                        });
+                    }
+                });
+            } else {
+                $('select[name="layanan"]').empty();
+            }
+
+        });
+        $('select[name="layanan"]').on('change', function () {
+
+            var hargaongkir = $("#layanan option:selected").attr("hargaongkir");
+
+            $("#ongkoskirim").append(hargaongkir);
+            // kita akan menampilkan harga ongkirnya di id ongkos kirim, jadi kalian bisa buat inputan dengan id ongkos kirim
+
+
+
+        });
+
+    </script>
+    <script>
+        $('.slct-info').on('change', function () {
+            var ongkir = $('select.slct-info option:selected').attr('ongkir');
+
+            $('.harga-inp').val(ongkir);
+        });
+
+    </script>
+    <script>
+        $('.slct-info').on('change', function () {
+            var ongkir = $('select.slct-info option:selected').attr('ongkir');
+
+            $("#harga-inp2").val(ongkir);
+        });
+
+    </script>
+
+    <!--total belanja-->
+    <script>
+        $('.slct-info').on('change', function () {
+            var ongkir = $('select.slct-info option:selected').attr('ongkir');
+
+            var b1 = document.getElementById('subtotal_pd').value;
+            var b2 = document.getElementById('ongkir').value;
+            var penjumlahan = parseInt(b1) + parseInt(b2);
+
+            document.getElementById("penjumlahan").innerHTML = penjumlahan;
+        });
+
+    </script>
+
+    <script>
+        $('.slct-info').on('change', function () {
+            var ongkir = $('select.slct-info option:selected').attr('ongkir');
+
+            var b1 = document.getElementById('subtotal_pd').value;
+            var b2 = document.getElementById('ongkir').value;
+            var penjumlahan2 = parseInt(b1) + parseInt(b2);
+
+            $('.penjumlahan2').val(penjumlahan2);
+
+        });
+
+    </script>
+
     @endsection

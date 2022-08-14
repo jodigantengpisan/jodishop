@@ -25,10 +25,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('cekstatus');
 Route::get('/dashboard', 'utamaController@index');
+Route::get('/welcome', 'homebeforeloginController@index');
 Route::get('/shop', 'shopController@index')->name('shop');
 Route::get('/about', 'aboutController@index');
 
-Route::get('/checkout', 'checkoutController@index');
+Route::get('/checkout', 'checkoutController@checkout');
+Route::post('konfirmasi-check-out', 'shopping_cartController@konfirmasi')->name('produkDipesan.store');
 
 Route::get('/admin', 'admindashboardController@index')->middleware('role:admin');
 Route::get('/barang', 'barangController@index');
@@ -69,4 +71,28 @@ Route::get('/ongkir', 'CheckOngkirController@index');
 Route::post('/ongkir', 'CheckOngkirController@check_ongkir');
 Route::get('/cities/{province_id}', 'CheckOngkirController@getCities');
 
+//API Raja Ongkir
+Route::get('province','CheckoutController@get_province')->name('province');
+Route::get('/kota/{id}','CheckoutController@get_city');
+Route::get('/origin={city_origin}&destination={city_destination}&weight={weight}&courier={courier}','CheckoutController@get_ongkir');
 
+//Upload bukti transfer
+Route::get('history', 'historyController@index');
+Route::get('history/admin/{id}', 'historyadminController@detail');
+Route::get('user/history/{id}', 'historyController@detail');
+
+Route::get('/upload', 'uploadController@index');
+Route::post('/upload', 'uploadController@store')->name('upload.store');
+
+//Pesanan_admin
+Route::get('/pesanan', 'pesanan_adminController@index');
+Route::post('deldp5', 'pesanan_adminController@delete')->name('view.delete');
+Route::post('updatess','pesanan_adminController@update')->name('historyadmin.update');
+Route::get('pesanan/admin/{id}', 'pesanan_adminController@detail');
+
+//Upload_Admin
+Route::get('/viewupload', 'view_uploadController@index');
+Route::post('deldp4', 'view_uploadController@delete')->name('view.delete');
+
+//PDF
+Route::post('/getPrint','pdfController@getPDF');

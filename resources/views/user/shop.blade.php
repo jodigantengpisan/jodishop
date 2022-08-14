@@ -1,9 +1,9 @@
 @extends('master')
 @section('main')
 
- <body>
+<body>
 
- <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
@@ -46,11 +46,11 @@
                         <div class="header__top__right">
                             <div class="header__top__links">
                                 <a href="#">Sign in</a>
-                                
+
                             </div>
                             <div class="header__top__hover">
-                                
-                                
+
+
                             </div>
                         </div>
                     </div>
@@ -75,10 +75,10 @@
                                     <li><a href="{{url('/shop_detail')}}">Shop Details</a></li>
                                     <li><a href="{{url('/shopping_cart')}}">Shopping Cart</a></li>
                                     <li><a href="{{url('/checkout')}}">Check Out</a></li>
-                                    
+
                                 </ul>
                             </li>
-                           
+
                             <li><a href="./contact">Contacts</a></li>
                         </ul>
                     </nav>
@@ -115,7 +115,7 @@
     </section>
     <!-- Breadcrumb Section End -->
 
-  
+
 
     <!-- Shop Section Begin -->
     <section class="shop spad">
@@ -125,11 +125,12 @@
                     <div class="shop__sidebar">
                         <div class="shop__sidebar__search">
                             <form action="{{url('/shop/cari')}}" class="site-block-top-search" method="GET">
-                            <input type="text" name="cari" class="form-control border-4" placeholder="Cari Produk" value="{{ $r->cari}}">
+                                <input type="text" name="cari" class="form-control border-4" placeholder="Cari Produk"
+                                    value="{{ $r->cari}}">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
 
-                       
+
 
                         </div>
                         <div class="shop__sidebar__accordion">
@@ -148,13 +149,13 @@
                                                     <li><a href="shop/cari?cari=Lipstick">Lipstick</a></li>
                                                     <li><a href="shop/cari?cari=Deodorant">Deodorant</a></li>
                                                     <li><a href="shop/cari?cari=Body Lotion">Body Lotion</a></li>
-                                                   
+
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
                     </div>
@@ -180,58 +181,45 @@
                         </div>
                     </div>
                     <div class="row">
-                    @foreach($data as $key => $barang)
+                        @foreach($data as $key => $barang)
                         <div class="col-lg-4 col-md-6 col-sm-6">
-                            
+
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{ url('img') }}/{{$barang->image1}}">
+                                <div class="product__item__pic set-bg"
+                                    data-setbg="{{ url('img') }}/{{$barang->image1}}">
                                     <ul class="product__hover">
-                                        <li><a href="{{ url('shop_detail') }}/{{ $barang->id_barang }}"><img src="img/icon/search.png" alt=""></a></li>
+                                        <li><a href="{{ url('shop_detail') }}/{{ $barang->id_barang }}"><img
+                                                    src="img/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
-                                
+
                                 <div class="product__item__text">
-                                    <h6>{{ $barang->nama_barang }} | {{ $barang->kategori }}</h6> 
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-                                    <div class="rating">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
+                                    <h6>{{ $barang->nama_barang }} | {{ $barang->kategori }}</h6>
+                                    <a href="{{ url('shop_detail') }}/{{ $barang->id_barang }}" class="add-cart">+ Add
+                                        To Cart</a>
+
                                     <h5>Rp. {{ $barang->harga_barang }}</h5>
-                                    <div class="product__color__select">
-                                        <label for="pc-4">
-                                            <input type="radio" id="pc-4">
-                                        </label>
-                                        <label class="active black" for="pc-5">
-                                            <input type="radio" id="pc-5">
-                                        </label>
-                                        <label class="grey" for="pc-6">
-                                            <input type="radio" id="pc-6">
-                                        </label>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="product__pagination">
-                                <a class="active" href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <span>...</span>
-                                <a href="#">21</a>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="product__pagination">
+                                    <a class="active" href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <span>...</span>
+                                    <a href="#">21</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </body> -->
 
-    @endsection
+@endsection
